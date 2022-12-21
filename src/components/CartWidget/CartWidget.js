@@ -1,8 +1,11 @@
+import './CartWidget.css'
+
 const CartWidget = () => {
     return (
-        <div style={{}}>
-            <img src='./images/cart.svg' alt='cart-widget'/>
-            0
+        <div className='CartWidget'>
+            <button className='Button-cart'>
+                <img src='./images/cart.svg' alt='cart-widget' /> 100 
+            </button>
         </div>
     )
 }
