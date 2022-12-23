@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
       
       <Navbar/>
-      <ItemListContainer greeting='¡Bienvenidos a nuestra tienda! Encontra todo para tu mascota'/>
+      <ItemListContainer greeting='¡Te damos la bienvenida a nuestra tienda!'/>
       
       </header>
     </div>
