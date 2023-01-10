@@ -7,7 +7,7 @@ const Item = (prod) => {
             <div className="card-body">
                 <h5 className="card-title">{prod.name}</h5>
                 <p className="card-text">${prod.price}</p>
-                <button class="btn btn-primary">Ver</button>
+                <button className="btn btn-primary">Ver</button>
             </div>
         </div>
     )

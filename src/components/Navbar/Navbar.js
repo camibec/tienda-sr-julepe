@@ -3,9 +3,10 @@ import logo from '../../logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 
 const Navbar = () => {
+
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light fondo">
             <img src={logo} className="navbar-brand" alt="logo" style={{width: 60}} />
             
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
