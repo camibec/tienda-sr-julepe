@@ -1,9 +1,8 @@
-import './Item.css';
 import img from '../../golocan.jpg' 
 
 const Item = (prod) => {
     return (
-        <div className="card" style={{ width: 18}}>
+        <div className="card" style={{ width: 288}}>
             <img className="card-img-top" src={img} alt="img" />
             <div className="card-body">
                 <h5 className="card-title">{prod.name}</h5>
