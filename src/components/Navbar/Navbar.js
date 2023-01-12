@@ -2,17 +2,21 @@ import './Navbar.css'
 import logo from '../../logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 
+import { NavLink, useNavigate } from 'react-router-dom'
+
 const Navbar = () => {
+    const navigate = useNavigate()
+
     return (
         <nav className='Navbar'>
-            <img src={logo} className="Nav-logo" alt="logo" />
+            <img src={logo} className="Nav-logo" alt="logo" onClick={() => navigate('/')}/>
             <div className='Div-buttons'>
-                <button className='Button-nav'>Alimentos</button>
-                <button className='Button-nav'>Accesorios</button>
-                <button className='Button-nav'>Higiene</button>
-                <button className='Button-nav'>Salud</button>
-                <button className='Button-nav'>Snacks</button>
-                <button className='Button-nav'>Nosotros</button>
+                <NavLink to= {`/category/alimentos`} className='Button-nav'>Alimentos</NavLink>
+                <NavLink to= {`/category/accesorios`} className='Button-nav'>Accesorios</NavLink>
+                <NavLink to= {`/category/higiene`} className='Button-nav'>Higiene</NavLink>
+                <NavLink to= {`/category/salud`} className='Button-nav'>Salud</NavLink>
+                <NavLink to= {`/category/snacks`} className='Button-nav'>Snacks</NavLink>
+                <NavLink to= {`/category/nosotros`} className='Button-nav'>Nosotros</NavLink>
             </div>
             <CartWidget/>
         </nav>

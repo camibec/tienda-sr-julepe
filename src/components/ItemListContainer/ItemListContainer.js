@@ -1,38 +1,36 @@
 import './ItemListContainer.css';
-import { getProducts } from '../../asyncMock';
-import React, { useEffect, useState } from 'react';
+import { getProducts, getProductsByCategory } from '../../asyncMock';
+import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({ greeting}) => {
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(true)
+    
+
+    const { categoryId } = useParams()
 
     useEffect(() => {
         setLoading(true)
-       getProducts().then(productsFromApi => {
-           setProducts(productsFromApi)
-       }).catch(error => {
-           console.log(error)
-           setError(true)
-       }).finally(() => {
-           setLoading(false)
-       })     
-    }, [])
+        
+        const asyncFunction = categoryId ? getProductsByCategory : getProducts
 
-    // de esta forma se monta el componente, se realiza esto y queda ahi
-    //console.log(products)
-    //const productsComponents = products.map(prod => <li>{prod.name}</li>)
-    //console.log(productsComponents)
+        asyncFunction(categoryId).then(response => {
+            setProducts(response)
+        }).catch(error => {
+            console.log(error)
+        }).finally(() => {
+            setLoading(false)
+        })          
+    }, [categoryId])
+
 
     if (loading) {
-        return <h1>Cargando...</h1>
+        return <h4>Cargando productos...</h4>
     }
     
-    if (error) {
-        return <h1>Hubo un error, no se pudieron cargar los productos</h1>
-    }
-
+    
     return (
         <div className='ListContainer'>
             <h4>{greeting}</h4>
